@@ -16,6 +16,7 @@ public class ActivityDataKeluarga extends AppCompatActivity {
     Spinner spinKeluarga, spinAnak;
     Button btnSubmit;
 
+    String user1, full1, email1, phone1, address1, sex1, pndidik1, ipk1, tngkat1, jrusan1;
     String itemKeluarga, itemAnak;
     String[] dataKeluarga = new String[]{
             "Apakah Sudah Berkeluarga", "Sudah", "Belum"
@@ -28,6 +29,18 @@ public class ActivityDataKeluarga extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_keluarga);
+
+        Intent zxcv = getIntent();
+        user1 = zxcv.getStringExtra("user");
+        full1 = zxcv.getStringExtra("full");
+        email1 = zxcv.getStringExtra("email");
+        phone1 = zxcv.getStringExtra("phone");
+        address1 = zxcv.getStringExtra("address");
+        sex1 = zxcv.getStringExtra("sex");
+        pndidik1 = zxcv.getStringExtra("pendidikan");
+        ipk1 = zxcv.getStringExtra("ipk");
+        tngkat1 = zxcv.getStringExtra("tingkat");
+        jrusan1 = zxcv.getStringExtra("jurusan");
 
         etIbu = (EditText)findViewById(R.id.etIbu);
         etBapak = (EditText)findViewById(R.id.etBapak);
@@ -95,26 +108,16 @@ public class ActivityDataKeluarga extends AppCompatActivity {
                     etIstri.setError("Nilai tidak boleh kosong");
                 }else {
                     Intent n11 = new Intent(getApplicationContext(), ActivityShowData.class);
-                    String ambilUser = n11.getStringExtra("user");
-                    String ambilFull = n11.getStringExtra("full");
-                    String ambilEmail = n11.getStringExtra("email");
-                    String phonee = n11.getStringExtra("phone");
-                    String addresss = n11.getStringExtra("address");
-                    String sexxxx = n11.getStringExtra("sex");
-                    String ambilPendidikan = n11.getStringExtra("pendidikan");
-                    String ambilIpk = n11.getStringExtra("ipk");
-                    String ambilTingkat = n11.getStringExtra("tingkat");
-                    String ambilJurusan = n11.getStringExtra("jurusan");
-                    n11.putExtra("pendidikan", ambilPendidikan);
-                    n11.putExtra("ipk", ambilIpk);
-                    n11.putExtra("tingkat", ambilTingkat);
-                    n11.putExtra("jurusan", ambilJurusan);
-                    n11.putExtra("user", ambilUser);
-                    n11.putExtra("full", ambilFull);
-                    n11.putExtra("email", ambilEmail);
-                    n11.putExtra("phone", phonee);
-                    n11.putExtra("address", addresss);
-                    n11.putExtra("sex", sexxxx);
+                    n11.putExtra("pendidikan", pndidik1);
+                    n11.putExtra("ipk", ipk1);
+                    n11.putExtra("tingkat", tngkat1);
+                    n11.putExtra("jurusan", jrusan1);
+                    n11.putExtra("user", user1);
+                    n11.putExtra("full", full1);
+                    n11.putExtra("email", email1);
+                    n11.putExtra("phone", phone1);
+                    n11.putExtra("address", address1);
+                    n11.putExtra("sex", sex1);
                     n11.putExtra("ibu", nIbu);
                     n11.putExtra("bapak", nBapak);
                     n11.putExtra("istri", nIstri);

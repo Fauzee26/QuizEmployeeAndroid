@@ -21,6 +21,7 @@ public class ActivityDataPendidikan extends AppCompatActivity {
             "RPL", "TKJ", "Multimedia", "Mesin", "Ekonomi", "Elektrik"
     };
 
+    String ambilUser, ambilFull, ambilEmail, phonee, addresss, sexxxx;
     String[] dataTingkat = new String[]{
             "SD", "SMP", "SMK", "D3", "S1", "S2"
     };
@@ -29,6 +30,14 @@ public class ActivityDataPendidikan extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_pendidikan);
+
+        Intent a123 = getIntent();
+        ambilUser = a123.getStringExtra("user");
+        ambilFull = a123.getStringExtra("full");
+        ambilEmail = a123.getStringExtra("email");
+        phonee = a123.getStringExtra("phone");
+        addresss = a123.getStringExtra("address");
+        sexxxx = a123.getStringExtra("sex");
 
         etPendidikan = (EditText)findViewById(R.id.etPendidikan);
         etIPK = (EditText)findViewById(R.id.etIpk);
@@ -76,12 +85,6 @@ public class ActivityDataPendidikan extends AppCompatActivity {
                     etIPK.setError("Nilai tidak boleh kosong");
                 }else {
                     Intent n2 = new Intent(getApplicationContext(), ActivityDataKeluarga.class);
-                    String ambilUser = n2.getStringExtra("user");
-                    String ambilFull = n2.getStringExtra("full");
-                    String ambilEmail = n2.getStringExtra("email");
-                    String phonee = n2.getStringExtra("phone");
-                    String addresss = n2.getStringExtra("address");
-                    String sexxxx = n2.getStringExtra("sex");
                     n2.putExtra("pendidikan", nPendidikan);
                     n2.putExtra("ipk", nIpk);
                     n2.putExtra("tingkat", itemTingkat);

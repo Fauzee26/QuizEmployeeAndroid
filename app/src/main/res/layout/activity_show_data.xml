@@ -224,6 +224,30 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/lbltotalGaji"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="15dp"
+            android:gravity="right|center_vertical|center"
+            android:text="Gaji Pokok"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lblGajitunjang"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="15dp"
+            android:gravity="right|center_vertical|center"
+            android:text="Gaji Tunjangan"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/lblGaji"
             android:layout_width="match_parent"
             android:layout_height="44dp"

@@ -7,13 +7,30 @@ import android.widget.TextView;
 
 public class ActivityShowData extends AppCompatActivity {
 
-    TextView lblUser, lblFull, lblEmail, lblSex, lblPhone, lblAddress, lblPendidikan, lblTingkat, lblIpk, lblJurusan, lblIbu, lblAyah, lblIstri, lblJumlahAnak, lblGaji;
-    String gaji, jumlahAnakaa;
-
+    TextView lblUser, lblFull, lblEmail, lblSex, lblPhone, lblAddress, lblPendidikan, lblTingkat, lblIpk, lblJurusan, lblIbu, lblAyah, lblIstri, lblJumlahAnak, lblGaji, lblpokok, lblTunjang;
+    String Uuser, Ffull, Eemail, Pphone, Addrssfd, Genfds, Pndiikfds, Ipkfds, tingkafd, jrusanfds, ibufds, bpkfds, istrifds, jmlahanakfds, kluargfd;
+    int gajia, jumlahaaaa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_data);
+
+        Intent aqwer = getIntent();
+        Uuser = aqwer.getStringExtra("user");
+        Ffull = aqwer.getStringExtra("full");
+        Eemail = aqwer.getStringExtra("email");
+        Pphone = aqwer.getStringExtra("phone");
+        Addrssfd = aqwer.getStringExtra("address");
+        Genfds = aqwer.getStringExtra("sex");
+        Pndiikfds = aqwer.getStringExtra("pendidikan");
+        Ipkfds = aqwer.getStringExtra("ipk");
+        tingkafd = aqwer.getStringExtra("tingkat");
+        jrusanfds = aqwer.getStringExtra("jurusan");
+        ibufds = aqwer.getStringExtra("ibu");
+        bpkfds = aqwer.getStringExtra("bapak");
+        istrifds = aqwer.getStringExtra("istri");
+        jmlahanakfds = aqwer.getStringExtra("anak");
+        kluargfd = aqwer.getStringExtra("keluargaa");
 
         lblUser = (TextView)findViewById(R.id.lblUsername);
         lblFull = (TextView)findViewById(R.id.lblFull);
@@ -30,70 +47,53 @@ public class ActivityShowData extends AppCompatActivity {
         lblIstri = (TextView)findViewById(R.id.lblIstri);
         lblJumlahAnak = (TextView)findViewById(R.id.lblJumlahAnak);
         lblGaji = (TextView)findViewById(R.id.lblGaji);
+        lblpokok = (TextView)findViewById(R.id.lbltotalGaji);
+        lblTunjang = (TextView)findViewById(R.id.lblGajitunjang);
 
-        Intent naa = new Intent(getApplicationContext(), ActivityShowData.class);
-        String uuser = naa.getStringExtra("user");
-        String ffull = naa.getStringExtra("full");
-        String eemail = naa.getStringExtra("email");
-        String pphone = naa.getStringExtra("phone");
-        String aadress = naa.getStringExtra("address");
-        String ggender = naa.getStringExtra("sex");
-        String ambilPendidikan = naa.getStringExtra("pendidikan");
-        String ambilIpk = naa.getStringExtra("ipk");
-        String ambilTingkat = naa.getStringExtra("tingkat");
-        String ambilJurusan = naa.getStringExtra("jurusan");
-        String nIbu = naa.getStringExtra("ibu");
-        String nBapak = naa.getStringExtra("bapak");
-        String nIstri = naa.getStringExtra("istri");
-        String nJumlahAnak = naa.getStringExtra("anak");
-        String keluarga = naa.getStringExtra("keluargaa");
 
-        int gaajii = Integer.parseInt(gaji);
-
-        if (ambilTingkat.equalsIgnoreCase("SD"))  {
-            gaajii = 1000000;
-        } else if (ambilTingkat.equalsIgnoreCase("SMP")) {
-            gaajii = 2000000;
-        } else if(ambilTingkat.equalsIgnoreCase("SMK")) {
-            gaajii = 2500000;
-        }else if(ambilTingkat.equalsIgnoreCase("D3")) {
-            gaajii = 2700000;
-        }else if(ambilTingkat.equalsIgnoreCase("S1")) {
-            gaajii = 3000000;
-        }else if(ambilTingkat.equalsIgnoreCase("S2")) {
-            gaajii = 5000000;
+        if (tingkafd.equalsIgnoreCase("SD"))  {
+            gajia = 1000000;
+        } else if (tingkafd.equalsIgnoreCase("SMP")) {
+            gajia = 2000000;
+        } else if(tingkafd.equalsIgnoreCase("SMK")) {
+            gajia = 2500000;
+        }else if(tingkafd.equalsIgnoreCase("D3")) {
+            gajia = 2700000;
+        }else if(tingkafd.equalsIgnoreCase("S1")) {
+            gajia = 3000000;
+        }else if(tingkafd.equalsIgnoreCase("S2")) {
+            gajia = 5000000;
         }
 
-        int aAnak = Integer.parseInt(jumlahAnakaa);
-
-        if (keluarga.equalsIgnoreCase("Sudah") && (nJumlahAnak.equalsIgnoreCase("0"))) {
-            aAnak = 700000;
-        } else if (keluarga.equalsIgnoreCase("Sudah") && (nJumlahAnak.equalsIgnoreCase("1"))) {
-            aAnak = 1000000;
-        } else if (keluarga.equalsIgnoreCase("Sudah") && (nJumlahAnak.equalsIgnoreCase("2"))) {
-            aAnak = 2000000;
-        }else if (keluarga.equalsIgnoreCase("Sudah") && (nJumlahAnak.equalsIgnoreCase("3"))) {
-            aAnak = 3000000;
+        if (kluargfd.equalsIgnoreCase("Sudah") && (jmlahanakfds.equalsIgnoreCase("0"))) {
+            jumlahaaaa = 700000;
+        } else if (kluargfd.equalsIgnoreCase("Sudah") && (jmlahanakfds.equalsIgnoreCase("1"))) {
+            jumlahaaaa = 1000000;
+        } else if (kluargfd.equalsIgnoreCase("Sudah") && (jmlahanakfds.equalsIgnoreCase("2"))) {
+            jumlahaaaa = 2000000;
+        }else if (kluargfd.equalsIgnoreCase("Sudah") && (jmlahanakfds.equalsIgnoreCase("3"))) {
+            jumlahaaaa = 3000000;
         }
 
-        int jumlaah = gaajii + aAnak;
+        int jumlaah = gajia + jumlahaaaa;
 
-        lblUser.setText("Username : " + uuser);
-        lblFull.setText("FullName : " + ffull);
-        lblEmail.setText("Email : " + eemail);
-        lblSex.setText("Phone Number : " + pphone);
-        lblPhone.setText("Address : " + aadress);
-        lblAddress.setText("Gender : " + ggender);
-        lblPendidikan.setText("Pendidikan Terakhir : " + ambilPendidikan);
-        lblTingkat.setText("Tingkat Pendidikan : " + ambilTingkat);
-        lblIpk.setText("IPK : " + ambilIpk);
-        lblJurusan.setText("Major : " + ambilJurusan);
-        lblIbu.setText("Nama Ibu : " + nIbu);
-        lblAyah.setText("Nama Ayah : " + nBapak);
-        lblIstri.setText("Nama Istri : " + nIstri);
-        lblJumlahAnak.setText("Jumlah Anak : " + nJumlahAnak);
+        lblUser.setText("Username : " + Uuser);
+        lblFull.setText("FullName : " + Ffull);
+        lblEmail.setText("Email : " + Eemail);
+        lblSex.setText("Phone Number : " + Pphone);
+        lblPhone.setText("Address : " + Addrssfd);
+        lblAddress.setText("Gender : " + Genfds);
+        lblPendidikan.setText("Pendidikan Terakhir : " + Pndiikfds);
+        lblTingkat.setText("Tingkat Pendidikan : " + tingkafd);
+        lblIpk.setText("IPK : " + Ipkfds);
+        lblJurusan.setText("Major : " + jrusanfds);
+        lblIbu.setText("Nama Ibu : " + ibufds);
+        lblAyah.setText("Nama Ayah : " + bpkfds);
+        lblIstri.setText("Nama Istri : " + istrifds);
+        lblJumlahAnak.setText("Jumlah Anak : " + jmlahanakfds);
+
+        lblpokok.setText("Gaji Pokok Anda : Rp." + gajia);
+        lblTunjang.setText("Gaji Tunjangan Anda : Rp." + jumlahaaaa);
         lblGaji.setText("Total Gaji = Rp." + jumlaah);
-
-        startActivity(naa);
     }
 }
